@@ -1,5 +1,6 @@
 package com.example.loggingservice.service.impl;
 
+import com.example.loggingservice.annotation.Delete;
 import com.example.loggingservice.converter.OrderConverter;
 import com.example.loggingservice.dto.OrderDto;
 import com.example.loggingservice.exception.NotFoundException;
@@ -41,6 +42,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @Delete
     public void delete(Long id) {
         orderRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException(String.format(EXCEPTION_MESSAGE, id)));
