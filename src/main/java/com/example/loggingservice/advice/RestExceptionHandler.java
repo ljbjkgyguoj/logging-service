@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  */
 @RestControllerAdvice
 @Slf4j
-public class RestResponseEntityExceptionHandler {
+public class RestExceptionHandler {
 
     /**
      * Метод для обработки исключения: {@link NotFoundException}, http-status 404.
