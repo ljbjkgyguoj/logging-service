@@ -1,4 +1,4 @@
-package com.example.loggingservice.advice;
+package com.example.loggingservice.exceptionhandler;
 
 import com.example.loggingservice.exception.BadRequestException;
 import com.example.loggingservice.exception.NotFoundException;
