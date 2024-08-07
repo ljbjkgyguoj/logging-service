@@ -10,3 +10,5 @@ mvn liquibase:update
 После запуска приложение можно тестировать при помощи сваггера
 http://localhost:8080/logging-service/swagger-ui/index.html#/
 
+логи можно посмотреть в файле src/main/resources/log/application.log
+

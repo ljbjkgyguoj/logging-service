@@ -1,6 +1,6 @@
 package com.example.loggingservice.service.impl;
 
-import com.example.loggingservice.annotation.Delete;
+import com.example.loggingservice.annotation.Returning;
 import com.example.loggingservice.converter.UserConverter;
 import com.example.loggingservice.dto.UserDto;
 import com.example.loggingservice.exception.BadRequestException;
@@ -35,6 +35,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Returning
     public UserDto findById(Long id) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException(String.format(NOT_FOUND_EXCEPTION_MESSAGE, id)));
@@ -50,7 +51,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Delete
     public void delete(Long id) {
         userRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException(String.format(NOT_FOUND_EXCEPTION_MESSAGE, id)));

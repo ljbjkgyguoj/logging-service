@@ -1,5 +1,6 @@
 package com.example.loggingservice.controller;
 
+import com.example.loggingservice.annotation.UserAction;
 import com.example.loggingservice.dto.UserDto;
 import com.example.loggingservice.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -24,24 +25,28 @@ public class UserController {
 
     @GetMapping("/get/{id}")
     @Operation(summary = "Получить пользователя по идентификатору")
+    @UserAction
     public UserDto getUserById(@PathVariable("id") Long id) {
         return userService.findById(id);
     }
 
     @PostMapping("/create")
     @Operation(summary = "Создать нового пользователя")
+    @UserAction
     public void createUser(@RequestBody UserDto userDto) {
         userService.create(userDto);
     }
 
     @PutMapping("/update")
     @Operation(summary = "Обновить данные уже существующего пользователя")
+    @UserAction
     public void updateUser(@RequestBody UserDto userDto) {
         userService.update(userDto);
     }
 
     @DeleteMapping("/delete/{id}")
     @Operation(summary = "Удалить пользователя")
+    @UserAction
     public void deleteUserById(@PathVariable("id") Long id) {
         userService.delete(id);
     }

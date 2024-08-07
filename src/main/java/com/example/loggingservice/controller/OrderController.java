@@ -1,5 +1,6 @@
 package com.example.loggingservice.controller;
 
+import com.example.loggingservice.annotation.OrderAction;
 import com.example.loggingservice.dto.OrderDto;
 import com.example.loggingservice.service.OrderService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -24,24 +25,28 @@ public class OrderController {
 
     @GetMapping("/get/{id}")
     @Operation(summary = "Получить заказ по идентификатору")
+    @OrderAction
     public OrderDto getOrderById(@PathVariable("id") Long id) {
         return orderService.findById(id);
     }
 
     @PostMapping("/create")
     @Operation(summary = "Создать новый заказ")
+    @OrderAction
     public void createOrder(@RequestBody OrderDto orderDto) {
         orderService.create(orderDto);
     }
 
     @PutMapping("/update")
     @Operation(summary = "Обновить уже существующий заказ")
+    @OrderAction
     public void updateOrder(@RequestBody OrderDto orderDto) {
         orderService.update(orderDto);
     }
 
     @DeleteMapping("/delete/{id}")
     @Operation(summary = "Удалить заказ")
+    @OrderAction
     public void deleteOrderById(@PathVariable("id") Long id) {
         orderService.delete(id);
     }
