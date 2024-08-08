@@ -7,6 +7,11 @@
 ```
 mvn liquibase:update
 ```
+Запуск тестов:
+```
+mvn test
+```
+
 После запуска приложение можно тестировать при помощи сваггера
 http://localhost:8080/logging-service/swagger-ui/index.html#/
 
