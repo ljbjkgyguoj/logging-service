@@ -19,7 +19,6 @@ public interface OrderConverter {
      * @param order сущность {@link Order}
      * @return дто {@link OrderDto}
      */
-    @Mapping(target = "userId", source = "user.id")
     OrderDto toDto(Order order);
 
     /**
@@ -28,7 +27,6 @@ public interface OrderConverter {
      * @param orderDto дто {@link OrderDto}
      * @return сущность {@link Order}
      */
-    @Mapping(target = "user.id", source = "orderDto.userId")
     Order toEntity(OrderDto orderDto);
 
     /**
@@ -40,5 +38,6 @@ public interface OrderConverter {
     @Mapping(target = "order.description", source = "orderDto.description", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "order.status", source = "orderDto.status", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "order.id", ignore = true)
+    @Mapping(target = "order.user", ignore = true)
     void toUpdateEntity(@MappingTarget Order order, OrderDto orderDto);
 }

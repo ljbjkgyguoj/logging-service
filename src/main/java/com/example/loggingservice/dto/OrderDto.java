@@ -16,6 +16,6 @@ public class OrderDto {
     private String description;
     @Schema(description = "Статус заказа")
     private String status;
-    @Schema(description = "Идентификатор пользователя")
-    private Long userId;
+    @Schema(description = "Пользователя")
+    private UserDto user;
 }

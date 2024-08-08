@@ -9,13 +9,11 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
 @Log4j2
-@Order(2)
 public class LoggingAspect {
 
     @Pointcut("within(com.example.loggingservice.service.impl.*)")
@@ -59,7 +57,6 @@ public class LoggingAspect {
                 service, result);
     }
 
-
     @AfterThrowing(value = "crudMethods()", throwing = "exception")
     public void addLogAfterThrowing(Throwable exception) {
         log.warn("Произошла ошибка: {}", exception.getMessage());
@@ -84,5 +81,4 @@ public class LoggingAspect {
     public void addLogAfterUserAction() {
         log.info("Конец работы с пользователем");
     }
-
 }
